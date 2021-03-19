@@ -12,7 +12,7 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     int key = 12;
-    int wrongKey = 15;
+    int wrongKey = 17;
     int[] sequence = new int[]{12};
     int[] longSequence = new int[]{12,15,55,500};
 
@@ -51,6 +51,13 @@ class BinarySearchTest {
         SearchResult sr = BinarySearch.search(key,longSequence);
         assertTrue(sr.isFound());
         assertEquals(key,longSequence[sr.getPosition()]);
+    }
+
+    @Test
+    void isElementOutOfSequenceFound(){
+        SearchResult sr = BinarySearch.search(wrongKey,longSequence);
+        assertFalse(sr.isFound());
+        assertEquals(-1,sr.getPosition());
     }
 
 }
