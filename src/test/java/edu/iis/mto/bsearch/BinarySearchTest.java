@@ -19,4 +19,13 @@ class BinarySearchTest {
         assertTrue(searchResult.isFound());
     }
 
+    @Test
+    void binarySearchShouldReturnFalseForAKeyNotFoundInASingleElementSequence() {
+        int key = 4;
+        int[] sequence = {5};
+
+        searchResult = BinarySearch.search(key, sequence);
+        assertFalse(searchResult.isFound());
+    }
+
 }
