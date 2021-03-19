@@ -3,7 +3,7 @@ package edu.iis.mto.bsearch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BinarySearchTest {
 
@@ -76,12 +76,26 @@ class BinarySearchTest {
 
     @Test
     void searchForExistingElem_MultiElementsSequenceEven_MiddleElement() {
-        int[] seq = new int[5];
+        int[] seq = new int[4];
         int key = 2;
         seq[0] = 1;
         seq[1] = key;
         seq[2] = 3;
         seq[3] = 4;
+        SearchResult result = BinarySearch.search(key, seq);
+        if(!result.isFound() || result.getPosition() != 1 || seq[result.getPosition()] != key) {
+            fail();
+        }
+    }
+
+    @Test
+    void searchForExistingElem_MultiElementsSequenceNegative_MiddleElement() {
+        int[] seq = new int[4];
+        int key = -7;
+        seq[0] = -10;
+        seq[1] = key;
+        seq[2] = -4;
+        seq[3] = -2;
         SearchResult result = BinarySearch.search(key, seq);
         if(!result.isFound() || result.getPosition() != 1 || seq[result.getPosition()] != key) {
             fail();
@@ -100,6 +114,53 @@ class BinarySearchTest {
         if(result.isFound() || result.getPosition() != -1) {
             fail();
         }
+    }
+
+    @Test
+    void testForException_EmptySequence() {
+        int[] seq = new int[0];
+        assertThrows(IllegalArgumentException.class,()->{
+            BinarySearch.search(3,seq);
+        });
+    }
+
+    @Test
+    void testForException_NotUniqueValues() {
+        int[] seq = new int[4];
+        seq[0] = 1;
+        seq[2] = 4;
+        assertThrows(IllegalArgumentException.class,()->{
+            BinarySearch.search(3,seq);
+        });
+    }
+
+    @Test
+    void testForException_NotSortedValues() {
+        int[] seq = new int[3];
+        seq[0] = 2;
+        seq[1] = 1;
+        seq[2] = 3;
+        assertThrows(IllegalArgumentException.class,()->{
+            BinarySearch.search(1,seq);
+        });
+    }
+
+    @Test
+    void testForException_DecreasingValues() {
+        int[] seq = new int[3];
+        seq[0] = 4;
+        seq[1] = 3;
+        seq[2] = 2;
+        assertThrows(IllegalArgumentException.class,()->{
+            BinarySearch.search(3,seq);
+        });
+    }
+
+    @Test
+    void testForNullSequence() {
+        assertThrows(NullPointerException.class,()->{
+            BinarySearch.search(1,null);
+        });
     }
 
 }
