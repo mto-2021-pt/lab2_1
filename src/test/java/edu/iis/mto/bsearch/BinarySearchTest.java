@@ -55,4 +55,32 @@ class BinarySearchTest {
         assertEquals(-1,result.getPosition());
     }
 
+    @Test
+    void test7() {
+        int key = 9;
+        try{
+            SearchResult result = BinarySearch.search(key,new int[]{});
+            assertFalse(result.isFound());
+            assertEquals(-1,result.getPosition());
+        }
+        catch(IllegalArgumentException e)
+        {
+            assertEquals("Nothing in the array", e.getMessage());
+        }
+
+    }
+    @Test
+    void test8() {
+        int key = 9;
+        try{
+            SearchResult result = BinarySearch.search(key,null);
+            assertFalse(result.isFound());
+            assertEquals(-1,result.getPosition());
+        }
+        catch(NullPointerException e)
+        {
+            assertEquals("Cannot read the array length because \"seq\" is null", e.getMessage());
+        }
+    }
+
 }
