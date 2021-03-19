@@ -53,4 +53,13 @@ class BinarySearchTest {
         assertEquals(sequence.length / 2 + 1, searchResult.getPosition());
     }
 
+    @Test
+    void binarySearchShouldReturnFalseForAKeyNotFoundInASequence() {
+        int key = 3;
+        int[] sequence = {1, 2, 5, 8, 9};
+
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertFalse(searchResult.isFound());
+    }
+
 }
