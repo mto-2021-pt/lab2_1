@@ -57,4 +57,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void findMiddleElement() {
+        int key =5;
+        int[] tab={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertEquals(searchResult.getPosition(),(tab.length+1)/2);
+
+    }
+
 }
