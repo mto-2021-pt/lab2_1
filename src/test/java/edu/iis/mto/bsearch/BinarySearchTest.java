@@ -12,8 +12,11 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void test() {
-        fail("Not yet implemented");
+    void keyIsInSequence() {
+        int key = 13;
+        int[] sequence = new int[]{13};
+        SearchResult sr = BinarySearch.search(key, sequence);
+        assertTrue(sr.isFound());
+        assertEquals(key, sequence[sr.getPosition()]);
     }
-
 }
