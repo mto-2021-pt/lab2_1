@@ -18,6 +18,7 @@ class BinarySearchTest {
     int[] emptySequence = new int[]{};
     int[] sequenceOfTwelves = new int[]{12,12,12,12,12};
     int[] sequenceWithNegativeNumbers = new int[]{12,15,55,500,-5,-8};
+    int[] decreasingSequence = new int[]{421,122,58,12,7,3};
 
     @Test
     void sequenceOfLengthOneTest(){
@@ -89,5 +90,12 @@ class BinarySearchTest {
         SearchResult sr = BinarySearch.search(key,sequenceWithNegativeNumbers);
         assertTrue(sr.isFound());
         assertEquals(key,sequenceWithNegativeNumbers[sr.getPosition()]);
+    }
+
+    @Test
+    void decreasingSentenceTest(){
+        SearchResult sr = BinarySearch.search(key,decreasingSequence);
+        assertFalse(sr.isFound());
+        assertEquals(-1,sr.getPosition());
     }
 }
