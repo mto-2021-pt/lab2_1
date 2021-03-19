@@ -20,4 +20,12 @@ class BinarySearchTest {
         assertEquals(seq[res.getPosition()],key);
     }
 
+    @Test
+    void OneElementSequence_ElementIsNotInSequence(){
+        int key=1234;
+        int[]seq=new int[]{12345};
+        SearchResult res=BinarySearch.search(key,seq);
+        assertFalse(res.isFound());
+    }
+
 }
