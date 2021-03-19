@@ -12,7 +12,7 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void OneElementSequence_ElementIsInSequence(){
+    void OneElementSequence_KeyElementIsInSequence(){
         int key=1234;
         int[]seq=new int[]{1234};
         SearchResult res=BinarySearch.search(key,seq);
@@ -21,7 +21,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void OneElementSequence_ElementIsNotInSequence(){
+    void OneElementSequence_KeyElementIsNotInSequence(){
         int key=1234;
         int[]seq=new int[]{12345};
         SearchResult res=BinarySearch.search(key,seq);
@@ -29,7 +29,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void MultipleElementSequence_ElementIsFirstInSequence(){
+    void MultipleElementSequence_KeyElementIsFirstInSequence(){
         int key=1234;
         int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
         SearchResult res=BinarySearch.search(key,seq);
@@ -38,7 +38,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void MultipleElementSequence_ElementIsLastInSequence(){
+    void MultipleElementSequence_KeyElementIsLastInSequence(){
         int key=4056;
         int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
         SearchResult res=BinarySearch.search(key,seq);
@@ -46,4 +46,12 @@ class BinarySearchTest {
         assertEquals(seq[seq.length-1],key);
     }
 
+    @Test
+    void MultipleElementSequence_KeyElementInTheMiddleOfSequence(){
+        int key=1588;
+        int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
+        SearchResult res=BinarySearch.search(key,seq);
+        assertTrue(res.isFound());
+        assertEquals(seq[(seq.length-1)/2],key);
+    }
 }
