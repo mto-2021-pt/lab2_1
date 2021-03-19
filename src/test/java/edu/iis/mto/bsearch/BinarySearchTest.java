@@ -29,7 +29,7 @@ class BinarySearchTest {
     @Test
     void searchedKeyShouldBeTheFirstElementInASequence() {
         int key = 1;
-        int[] sequence = {1,2,5,8,9};
+        int[] sequence = {1, 2, 5, 8, 9};
 
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertEquals(1, searchResult.getPosition());
@@ -38,10 +38,19 @@ class BinarySearchTest {
     @Test
     void searchedKeyShouldBeTheLastElementInASequence() {
         int key = 9;
-        int[] sequence = {1,2,5,8,9};
+        int[] sequence = {1, 2, 5, 8, 9};
 
         SearchResult searchResult = BinarySearch.search(key, sequence);
         assertEquals(sequence.length, searchResult.getPosition());
+    }
+
+    @Test
+    void searchedKeyShouldBeTheMiddleElementInASequence() {
+        int key = 5;
+        int[] sequence = {1, 2, 5, 8, 9};
+
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertEquals(sequence.length / 2 + 1, searchResult.getPosition());
     }
 
 }
