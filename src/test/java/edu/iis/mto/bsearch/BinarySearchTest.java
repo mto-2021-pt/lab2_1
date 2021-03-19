@@ -14,17 +14,23 @@ class BinarySearchTest {
     @Test
     void searchForExistingElementInOneElementArray() {
         int[] seq=new int[]{1};
-        SearchResult result = BinarySearch.search(1,seq );
-        assertTrue(result.isFound());
+        int key=1;
+
+        SearchResult result = BinarySearch.search(key,seq );
         int actual=seq[result.getPosition()];
-        assertEquals(1,actual);
+
+        assertTrue(result.isFound());
+        assertEquals(key,actual);
     }
 
     @Test
     void searchForNonexistingElementInOneElementArray()
     {
         int[] seq=new int[]{1};
-        SearchResult result = BinarySearch.search(3, seq);
+        int key=3;
+
+        SearchResult result = BinarySearch.search(key, seq);
+
         assertFalse(result.isFound());
         assertEquals( -1,result.getPosition());
     }
@@ -33,37 +39,49 @@ class BinarySearchTest {
     void searchForFirstExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
-        SearchResult result = BinarySearch.search(1, seq);
-        assertTrue(result.isFound());
+        int key=1;
+
+        SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
-        assertEquals(1,actual);
+
+        assertTrue(result.isFound());
+        assertEquals(key,actual);
     }
 
     @Test
     void searchForLastExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
-        SearchResult result = BinarySearch.search(5, seq);
-        assertTrue(result.isFound());
+        int key=5;
+
+        SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
-        assertEquals(5,actual);
+
+        assertTrue(result.isFound());
+        assertEquals(key,actual);
     }
 
     @Test
     void searchForMiddleExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
-        SearchResult result = BinarySearch.search(3, seq);
-        assertTrue(result.isFound());
+        int key=3;
+
+        SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
-        assertEquals(3,actual);
+
+        assertTrue(result.isFound());
+        assertEquals(key,actual);
     }
 
     @Test
     void searchForNonexistingElementInArray()
     {
         int[] seq=new int[]{1,2,4,5,6};
-        SearchResult result = BinarySearch.search(3,seq);
+        int key=3;
+
+        SearchResult result = BinarySearch.search(key,seq);
+
         assertFalse(result.isFound());
         assertEquals( -1,result.getPosition());
     }
