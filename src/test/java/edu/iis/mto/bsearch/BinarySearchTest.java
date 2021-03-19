@@ -15,6 +15,7 @@ class BinarySearchTest {
     int wrongKey = 17;
     int[] sequence = new int[]{12};
     int[] longSequence = new int[]{12,15,55,500};
+    int[] emptySequence = new int[]{};
 
     @Test
     void sequenceOfLengthOneTest(){
@@ -58,6 +59,14 @@ class BinarySearchTest {
         SearchResult sr = BinarySearch.search(wrongKey,longSequence);
         assertFalse(sr.isFound());
         assertEquals(-1,sr.getPosition());
+    }
+
+    @Test
+    void emptySequenceTest(){
+        //SearchResult sr = BinarySearch.search(key,emptySequence);
+        assertThrows(IllegalArgumentException.class,()->{
+            BinarySearch.search(key,emptySequence);
+        });
     }
 
 }
