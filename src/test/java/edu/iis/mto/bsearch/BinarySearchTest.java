@@ -79,4 +79,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void emptySequence() {
+        int key =7;
+        int[] tab={};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertEquals(tab.length,0);
+
+    }
+
 }
