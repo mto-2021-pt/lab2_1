@@ -83,4 +83,11 @@ class BinarySearchTest {
         int[]seq=new int[]{1234,1235,1236,1237,1238,-1};
         assertThrows(IllegalArgumentException.class,()-> BinarySearch.search(key,seq));
     }
+
+    @Test
+    void SequenceIsNull(){
+        int key=1234;
+        int[]seq=null;
+        assertThrows(NullPointerException.class,()-> BinarySearch.search(key,seq));
+    }
 }
