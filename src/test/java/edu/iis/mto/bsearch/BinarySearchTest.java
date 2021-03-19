@@ -54,4 +54,12 @@ class BinarySearchTest {
         assertTrue(res.isFound());
         assertEquals(seq[(seq.length-1)/2],key);
     }
+
+    @Test
+    void MultipleElementSequence_KeyElementIsNotInSequence(){
+        int key=1589;
+        int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
+        SearchResult res=BinarySearch.search(key,seq);
+        assertFalse(res.isFound());
+    }
 }
