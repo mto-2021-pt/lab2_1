@@ -11,7 +11,7 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void test1() {
+    void searching_in_empty_array() {
         int key = -1;
         boolean catched = false;
         try {
@@ -26,7 +26,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test2() {
+    void search_for_element_in_array_with_1_element() {
         int key = 1;
         int index = 0;
 
@@ -37,7 +37,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test3() {
+    void search_for_nonexisting_element_in_array_with_1_element() {
         int key = 2;
         int index = -1;
 
@@ -48,7 +48,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test4() {
+    void search_for_element_at_the_beginning() {
         int key = 1;
         int index = 0;
 
@@ -59,7 +59,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test5() {
+    void search_for_element_at_the_end() {
         int key = 60;
         int index = 4;
 
@@ -70,7 +70,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test6() {
+    void search_for_element_in_the_middle() {
         int key = 40;
         int index = 2;
 
@@ -82,7 +82,7 @@ class BinarySearchTest {
 
 
     @Test
-    void test7() {
+    void search_for_element_in_the_middle2() {
         int key = 1300;
         int index = 2;
 
@@ -93,11 +93,11 @@ class BinarySearchTest {
     }
 
     @Test
-    void test8() {
+    void search_for_nonexisting_element_in_array_larger_than_1() {
         int key = 700;
         int index = -1;
 
-        SearchResult res = BinarySearch.search(key, new int[]{ 5, 10, 21, 22});
+        SearchResult res = BinarySearch.search(key, new int[]{ 5, 10, 21, 22, 56, 58});
 
         assertFalse(res.isFound());
         assertEquals(index, res.getPosition());
