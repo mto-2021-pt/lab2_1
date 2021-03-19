@@ -83,4 +83,13 @@ class BinarySearchTest {
         }
     }
 
+    @Test
+    void test9() {
+        int key = 3;
+        int []tab = {3,3,3};
+        SearchResult result = BinarySearch.search(key,tab);
+        assertTrue(result.isFound());
+        assertEquals(3,tab[result.getPosition()]);
+    }
+
 }
