@@ -37,5 +37,13 @@ class BinarySearchTest {
         assertEquals(seq[0],key);
     }
 
+    @Test
+    void MultipleElementSequence_ElementIsLastInSequence(){
+        int key=4056;
+        int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
+        SearchResult res=BinarySearch.search(key,seq);
+        assertTrue(res.isFound());
+        assertEquals(seq[seq.length-1],key);
+    }
 
 }
