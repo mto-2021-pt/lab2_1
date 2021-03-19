@@ -90,6 +90,36 @@ class BinarySearchTest {
 //
 //    }
 
+    @Test
+    void twoTheSameSequences() {
+        int key =7;
+        int[] tab={4,2,5,8,9};
+
+        int key2 =7;
+        int[] tab2={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+        SearchResult searchResult2 =BinarySearch.search(key2,tab2);
+
+        assertEquals(searchResult,searchResult2);
+
+    }
+
+    @Test
+    void twoOtherSequences() {
+        int key =4;
+        int[] tab={4,2,5,8,9};
+
+        int key2 =5;
+        int[] tab2={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+        SearchResult searchResult2 =BinarySearch.search(key2,tab2);
+
+        assertNotEquals(searchResult,searchResult2);
+
+    }
+
 
 
 }
