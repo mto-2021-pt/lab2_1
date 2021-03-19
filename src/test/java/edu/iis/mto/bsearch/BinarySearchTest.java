@@ -62,4 +62,11 @@ class BinarySearchTest {
         SearchResult res=BinarySearch.search(key,seq);
         assertFalse(res.isFound());
     }
+
+    @Test
+    void MultipleElementSequence_IdenticalElements(){
+        int key=1234;
+        int[]seq=new int[]{1234,1234,1234,1234,1234,1234};
+        assertThrows(IllegalArgumentException.class,()-> BinarySearch.search(key,seq));
+    }
 }
