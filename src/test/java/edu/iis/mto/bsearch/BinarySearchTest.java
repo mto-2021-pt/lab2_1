@@ -89,6 +89,7 @@ class BinarySearchTest {
         assertThat( -1,Is.is(result.getPosition()));
     }
 
+
     @Test
     void searchingInEmptyArray()
     {
@@ -97,6 +98,44 @@ class BinarySearchTest {
 
         assertThrows(IllegalArgumentException.class,
                 () -> BinarySearch.search(key,seq));
+
+    }
+
+    @Test
+    void searchingInDescendingOrderArray()
+    {
+        int[] seq={5,4,3,2,1};
+        int key=1;
+        SearchResult result = BinarySearch.search(key,seq);
+
+        assertThat(result.isFound(), Is.is(false));
+        assertThat( -1,Is.is(result.getPosition()));
+    }
+
+    @Test
+    void searchForExistingElementInArrayWithDuplicates()
+    {
+        int[] seq={3,3,3,3,3};
+        int key=3;
+
+        SearchResult result = BinarySearch.search(key, seq);
+        int actual=seq[result.getPosition()];
+
+        assertThat(result.isFound(), Is.is(true));
+        assertThat(key,Is.is(actual));
+
+    }
+
+    @Test
+    void searchFoNonexistingElementInArrayWithDuplicates()
+    {
+        int[] seq={3,3,3,3,3};
+        int key=5;
+
+        SearchResult result = BinarySearch.search(key, seq);
+
+        assertThat(result.isFound(), Is.is(false));
+        assertThat( -1,Is.is(result.getPosition()));
 
     }
 
