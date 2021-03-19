@@ -163,4 +163,6 @@ class BinarySearchTest {
         });
     }
 
+    // Znajomość algorytmu wyszukiwania może pomóc zoptymalizować proces testowania, stwarza możliwość lepszego dobrania warunków i odrzucenia niepotrzebnych przypadków testowych
+
 }
