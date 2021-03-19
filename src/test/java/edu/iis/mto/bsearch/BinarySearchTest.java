@@ -62,4 +62,13 @@ class BinarySearchTest {
         assertFalse(searchResult.isFound());
     }
 
+    @Test
+    void binarySearchShouldReturnFalseIfASequenceIsEmpty() {
+        int key = 7;
+        int[] sequence = {};
+
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertFalse(searchResult.isFound());
+    }
+
 }
