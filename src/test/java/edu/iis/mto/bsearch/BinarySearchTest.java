@@ -37,12 +37,22 @@ class BinarySearchTest {
     }
 
     @Test
-    public void shouldSearchElementInManyElementsSequences() {
+    public void shouldSearchFirstElementInManyElementsSequences() {
         int key = 7;
         int[] seq = {7, 9, 11, 15, 30, 40, 59};
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertEquals(true, searchResult.isFound());
         assertEquals(0, searchResult.getPosition());
+        assertEquals(seq[searchResult.getPosition()], key);
+    }
+
+    @Test
+    public void shouldSearchLastElementInManyElementsSequences() {
+        int key = 7;
+        int[] seq = {1, 2, 4, 5, 7};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(true, searchResult.isFound());
+        assertEquals(4, searchResult.getPosition());
         assertEquals(seq[searchResult.getPosition()], key);
     }
 }
