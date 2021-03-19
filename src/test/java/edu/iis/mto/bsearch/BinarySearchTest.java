@@ -83,4 +83,17 @@ class BinarySearchTest {
         assertEquals(searchResult1, searchResult2);
     }
 
+    @Test
+    void searchResultShouldBeDifferentForTwoTheSameSequencesButDifferentKeys() {
+        int key1 = 3;
+        int key2 = 4;
+        int[] sequence1 = {1, 3, 4, 5, 8};
+        int[] sequence2 = {1, 3, 4, 5, 8};
+
+        SearchResult searchResult1 = BinarySearch.search(key1, sequence1);
+        SearchResult searchResult2 = BinarySearch.search(key2, sequence2);
+
+        assertNotEquals(searchResult1, searchResult2);
+    }
+
 }
