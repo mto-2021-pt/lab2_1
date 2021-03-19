@@ -32,6 +32,13 @@ class BinarySearchTest {
     }
     
     @Test
+    void searchShouldReturnIndexOfFirstElementInSequenceWithMultipleElements() {
+    	result = BinarySearch.search(1, seq);
+    	assertEquals(result.getPosition(), 0);
+    	assertTrue(result.isFound());
+    }
+    
+    @Test
     void test() {
         fail("Not yet implemented");
     }
