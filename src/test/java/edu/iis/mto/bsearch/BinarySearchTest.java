@@ -18,8 +18,15 @@ class BinarySearchTest {
         SearchResult sr = BinarySearch.search(key,sequence);
         assertTrue(sr.isFound());
         assertEquals(key,sequence[sr.getPosition()]);
+    }
 
-
+    @Test
+    void sequenceOfLengthOneWithoutKeyTest(){
+        int key = 15;
+        int[] sequence = new int[]{12};
+        SearchResult sr = BinarySearch.search(key,sequence);
+        assertFalse(sr.isFound());
+        assertEquals(-1,sr.getPosition());
     }
 
 }
