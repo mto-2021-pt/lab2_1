@@ -21,7 +21,12 @@ public class BinarySearch {
      * @return obiekt rezultatu o polach: - found (true jezeli znaleziony) - position (jezeli znaleziony - pozycja w
      *         sekwencji, jezeli nie znaleziony -1)
      */
-    public static SearchResult search(int key, int[] seq) {
+    public static SearchResult search(int key, int[] seq)  {
+        if(seq.length==0)
+        {
+            throw new IllegalArgumentException("Sekwencja pusta");
+        }
+
         int start = 0;
         int end = seq.length - 1;
         int center;
