@@ -10,7 +10,7 @@ class BinarySearchTest {
 
     int[] sequence = new int[]{13, 15, 17, 20, 22, 156, 333, 453, 896};
     int[] shortSequence = new int[]{13};
-
+    int[] sequenceWithNegativeNumbers = new int[]{-20, -18, -10, -5, -2, -1};
     @BeforeEach
     void setUp() throws Exception {}
 
@@ -60,5 +60,13 @@ class BinarySearchTest {
         SearchResult sr = BinarySearch.search(key, sequence);
         assertFalse(sr.isFound());
         assertEquals(-1, sr.getPosition());
+    }
+
+    @Test
+    void keyIsInSequenceWithNegativeNumbers() {
+        int key = -5;
+        SearchResult sr = BinarySearch.search(key, sequenceWithNegativeNumbers);
+        assertTrue(sr.isFound());
+        assertEquals(key, sequenceWithNegativeNumbers[sr.getPosition()]);
     }
 }
