@@ -12,7 +12,7 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void nazwaTestu(){
+    void sequenceOfLengthOneTest(){
         int key = 12;
         int[] sequence = new int[]{12};
         SearchResult sr = BinarySearch.search(key,sequence);
