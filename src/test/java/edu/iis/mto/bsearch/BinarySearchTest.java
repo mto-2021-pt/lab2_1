@@ -36,4 +36,11 @@ class BinarySearchTest {
         assertTrue(sr.isFound());
     }
 
+    @Test
+    void isLastElementOfSequenceFoundTest(){
+        key = 500;
+        SearchResult sr = BinarySearch.search(key,longSequence);
+        assertTrue(sr.isFound());
+    }
+
 }
