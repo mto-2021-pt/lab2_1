@@ -68,4 +68,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void findSequenceElementFalse() {
+        int key =7;
+        int[] tab={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertFalse(searchResult.isFound());
+
+    }
+
 }
