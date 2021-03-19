@@ -25,6 +25,13 @@ class BinarySearchTest {
     }
     
     @Test
+    void searchShouldNotFindElementInSequenceWithOneElement() {
+     	result = BinarySearch.search(1, oneElementSeq);
+    	assertEquals(result.getPosition(), -1);
+    	assertFalse(result.isFound());
+    }
+    
+    @Test
     void test() {
         fail("Not yet implemented");
     }
