@@ -11,6 +11,17 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
+    void passing_nulls_as_parameters() {
+        try {
+            SearchResult res = BinarySearch.search(-1, null);
+
+            fail("Expected to throw NullPointerException.");
+        }catch(NullPointerException e){
+            // Ok.
+        }
+    }
+
+    @Test
     void searching_in_empty_array() {
         try {
             SearchResult res = BinarySearch.search(-1, new int[]{});
@@ -83,6 +94,39 @@ class BinarySearchTest {
         int index = 2;
 
         SearchResult res = BinarySearch.search(key, new int[]{ 7, 900, 1300, 900931});
+
+        assertTrue(res.isFound());
+        assertEquals(index, res.getPosition());
+    }
+
+    @Test
+    void search_for_element_in_array_with_negative_values() {
+        int key = -1;
+        int index = 2;
+
+        SearchResult res = BinarySearch.search(key, new int[]{ -500, -100, -1, 0, 2});
+
+        assertTrue(res.isFound());
+        assertEquals(index, res.getPosition());
+    }
+
+    @Test
+    void search_for_zero() {
+        int key = 0;
+        int index = 0;
+
+        SearchResult res = BinarySearch.search(key, new int[]{ 0});
+
+        assertTrue(res.isFound());
+        assertEquals(index, res.getPosition());
+    }
+
+    @Test
+    void search_for_element_at_the_end2() {
+        int key = 1;
+        int index = 1;
+
+        SearchResult res = BinarySearch.search(key, new int[]{ 0, 1});
 
         assertTrue(res.isFound());
         assertEquals(index, res.getPosition());
