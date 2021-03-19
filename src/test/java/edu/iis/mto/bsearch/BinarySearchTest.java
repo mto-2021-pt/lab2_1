@@ -20,4 +20,13 @@ class BinarySearchTest {
         assertEquals(1,actual);
     }
 
+    @Test
+    void test2()
+    {
+        int[] seq=new int[]{1};
+        SearchResult result = BinarySearch.search(3, seq);
+        assertFalse(result.isFound());
+        assertEquals( -1,result.getPosition());
+    }
+
 }
