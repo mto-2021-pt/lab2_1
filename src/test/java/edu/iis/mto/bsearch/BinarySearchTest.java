@@ -11,6 +11,8 @@ class BinarySearchTest {
     int[] sequence = new int[]{13, 15, 17, 20, 22, 156, 333, 453, 896};
     int[] shortSequence = new int[]{13};
     int[] sequenceWithNegativeNumbers = new int[]{-20, -18, -10, -5, -2, -1};
+    int[] emptySequence = new int[]{};
+
     @BeforeEach
     void setUp() throws Exception {}
 
@@ -69,4 +71,11 @@ class BinarySearchTest {
         assertTrue(sr.isFound());
         assertEquals(key, sequenceWithNegativeNumbers[sr.getPosition()]);
     }
+
+    @Test
+    void tryToFindKeyInEmptySequence() {
+            int key = 13;
+            SearchResult searchResult = BinarySearch.search(key, emptySequence);
+            assertFalse(searchResult.isFound());
+        }
 }
