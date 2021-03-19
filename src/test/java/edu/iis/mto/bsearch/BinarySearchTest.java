@@ -13,6 +13,7 @@ class BinarySearchTest {
     int[] sequenceWithNegativeNumbers = new int[]{-20, -18, -10, -5, -2, -1};
     int[] emptySequence = new int[]{};
     int[] sequenceWithOnlyThirteens = new  int[]{13, 13, 13, 13};
+    int[] sequenceWithDecreasingNumbers = new  int[]{13, 12, 11, 10, 9};
 
     @BeforeEach
     void setUp() throws Exception {}
@@ -85,5 +86,12 @@ class BinarySearchTest {
         int key = 13;
         SearchResult searchResult = BinarySearch.search(key, sequenceWithOnlyThirteens);
         assertTrue(searchResult.isFound());
+    }
+
+    @Test
+    void keyIsInSequenceWithDecreasingNumbers() {
+        int key = 9;
+        SearchResult searchResult = BinarySearch.search(key, sequenceWithDecreasingNumbers);
+        assertFalse(searchResult.isFound());
     }
 }
