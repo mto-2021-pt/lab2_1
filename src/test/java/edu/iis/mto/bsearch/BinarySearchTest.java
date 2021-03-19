@@ -138,6 +138,6 @@ class BinarySearchTest {
         assertThat( -1,Is.is(result.getPosition()));
 
     }
-
+//wiedza nt. implementacji algorytmu wyszukiwania ulatwi implementacje testow - latwiej dobrac warunki, wykluczyc te niepotrzebne
 
 }
