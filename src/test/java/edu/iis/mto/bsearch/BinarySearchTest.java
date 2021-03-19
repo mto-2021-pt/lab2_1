@@ -13,15 +13,16 @@ class BinarySearchTest {
     @Test
     void test1() {
         int key = -1;
+        boolean catched = false;
         try {
             SearchResult res = BinarySearch.search(key, new int[]{});
         }catch(IllegalArgumentException e){
-            assertTrue(true);
+            catched = true;
         }catch(Exception e){
             fail("Binary search did not threw correct exception when passed empty array.");
         }
 
-        fail();
+        assertTrue(catched);
     }
 
     @Test
@@ -53,7 +54,7 @@ class BinarySearchTest {
 
         SearchResult res = BinarySearch.search(key, new int[]{ 1, 2, 3, 4, 17, 23});
 
-        assertFalse(res.isFound());
+        assertTrue(res.isFound());
         assertEquals(index, res.getPosition());
     }
 
@@ -64,7 +65,7 @@ class BinarySearchTest {
 
         SearchResult res = BinarySearch.search(key, new int[]{ 4, 7, 13, 20, 60});
 
-        assertFalse(res.isFound());
+        assertTrue(res.isFound());
         assertEquals(index, res.getPosition());
     }
 
@@ -75,7 +76,7 @@ class BinarySearchTest {
 
         SearchResult res = BinarySearch.search(key, new int[]{ 5, 12, 40, 500, 1998});
 
-        assertFalse(res.isFound());
+        assertTrue(res.isFound());
         assertEquals(index, res.getPosition());
     }
 
@@ -87,7 +88,7 @@ class BinarySearchTest {
 
         SearchResult res = BinarySearch.search(key, new int[]{ 7, 900, 1300, 900931});
 
-        assertFalse(res.isFound());
+        assertTrue(res.isFound());
         assertEquals(index, res.getPosition());
     }
 
