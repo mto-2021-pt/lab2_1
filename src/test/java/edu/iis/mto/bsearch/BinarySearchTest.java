@@ -34,6 +34,7 @@ class BinarySearchTest {
     void isFirstElementOfSequenceFoundTest(){
         SearchResult sr = BinarySearch.search(key,longSequence);
         assertTrue(sr.isFound());
+        assertEquals(key,longSequence[sr.getPosition()]);
     }
 
     @Test
@@ -41,6 +42,7 @@ class BinarySearchTest {
         key = 500;
         SearchResult sr = BinarySearch.search(key,longSequence);
         assertTrue(sr.isFound());
+        assertEquals(key,longSequence[sr.getPosition()]);
     }
 
 }
