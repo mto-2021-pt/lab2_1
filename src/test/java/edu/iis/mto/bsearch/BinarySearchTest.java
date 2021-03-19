@@ -46,6 +46,13 @@ class BinarySearchTest {
     }
     
     @Test
+    void searchShouldReturnIndexOfMidleElementInSequenceWithMultipleElements() {
+    	result = BinarySearch.search(4, seq);
+    	assertEquals(result.getPosition(), (seq.length - 1)/2);
+    	assertTrue(result.isFound());
+    }
+    
+    @Test
     void test() {
         fail("Not yet implemented");
     }
