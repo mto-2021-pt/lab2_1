@@ -60,6 +60,17 @@ class BinarySearchTest {
     }
     
     @Test
+    void searchShouldThrowNullPointerExceptionWhenSequenceIsNull() {
+    	assertThrows(NullPointerException.class, ()-> BinarySearch.search(8, null));
+    }
+    
+    @Test
+    void searchSequenceIsEmpty() {
+    	int[] sequence = {}; 
+    	assertThrows(IllegalArgumentException.class, ()-> BinarySearch.search(8, sequence));
+    }
+    
+    @Test
     void test() {
         fail("Not yet implemented");
     }
