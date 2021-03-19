@@ -11,10 +11,13 @@ class BinarySearchTest {
     @BeforeEach
     void setUp() throws Exception {}
 
+    int key = 12;
+    int wrongKey = 15;
+    int[] sequence = new int[]{12};
+    int[] longSequence = new int[]{12,15,55,500};
+
     @Test
     void sequenceOfLengthOneTest(){
-        int key = 12;
-        int[] sequence = new int[]{12};
         SearchResult sr = BinarySearch.search(key,sequence);
         assertTrue(sr.isFound());
         assertEquals(key,sequence[sr.getPosition()]);
@@ -22,11 +25,15 @@ class BinarySearchTest {
 
     @Test
     void sequenceOfLengthOneWithoutKeyTest(){
-        int key = 15;
-        int[] sequence = new int[]{12};
-        SearchResult sr = BinarySearch.search(key,sequence);
+        SearchResult sr = BinarySearch.search(wrongKey,sequence);
         assertFalse(sr.isFound());
         assertEquals(-1,sr.getPosition());
+    }
+
+    @Test
+    void isFirstElementOfSequenceFoundTest(){
+        SearchResult sr = BinarySearch.search(key,longSequence);
+        assertTrue(sr.isFound());
     }
 
 }
