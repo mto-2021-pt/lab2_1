@@ -53,6 +53,13 @@ class BinarySearchTest {
     }
     
     @Test
+    void searchShouldNotFindElementInSequenceWithMultipleElements() {
+    	result = BinarySearch.search(8, seq);
+    	assertEquals(result.getPosition(), -1);
+    	assertFalse(result.isFound());
+    }
+    
+    @Test
     void test() {
         fail("Not yet implemented");
     }
