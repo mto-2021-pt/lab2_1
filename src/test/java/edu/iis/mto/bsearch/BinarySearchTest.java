@@ -35,4 +35,13 @@ class BinarySearchTest {
         assertEquals(1, searchResult.getPosition());
     }
 
+    @Test
+    void searchedKeyShouldBeTheLastElementInASequence() {
+        int key = 9;
+        int[] sequence = {1,2,5,8,9};
+
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertEquals(sequence.length, searchResult.getPosition());
+    }
+
 }
