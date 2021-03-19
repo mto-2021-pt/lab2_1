@@ -89,5 +89,16 @@ class BinarySearchTest {
         assertThat( -1,Is.is(result.getPosition()));
     }
 
+    @Test
+    void searchingInEmptyArray()
+    {
+        int[] seq={};
+        int key=1;
+
+        assertThrows(IllegalArgumentException.class,
+                () -> BinarySearch.search(key,seq));
+
+    }
+
 
 }
