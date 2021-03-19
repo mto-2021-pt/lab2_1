@@ -35,4 +35,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void findFirstElement() {
+        int key =4;
+        int[] tab={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertEquals(searchResult.getPosition(),1);
+
+    }
+
 }
