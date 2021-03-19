@@ -8,14 +8,12 @@ import org.junit.jupiter.api.Test;
 
 class BinarySearchTest {
 
-    SearchResult searchResult;
-
     @Test
     void binarySearchShouldReturnTrueForAKeyFoundInASingleElementSequence() {
         int key = 5;
         int[] sequence = {5};
 
-        searchResult = BinarySearch.search(key, sequence);
+        SearchResult searchResult = BinarySearch.search(key, sequence);
         assertTrue(searchResult.isFound());
     }
 
@@ -24,8 +22,17 @@ class BinarySearchTest {
         int key = 4;
         int[] sequence = {5};
 
-        searchResult = BinarySearch.search(key, sequence);
+        SearchResult searchResult = BinarySearch.search(key, sequence);
         assertFalse(searchResult.isFound());
+    }
+
+    @Test
+    void searchedKeyShouldBeTheFirstElementInASequence() {
+        int key = 1;
+        int[] sequence = {1,2,5,8,9};
+
+        SearchResult searchResult = BinarySearch.search(key, sequence);
+        assertEquals(1, searchResult.getPosition());
     }
 
 }
