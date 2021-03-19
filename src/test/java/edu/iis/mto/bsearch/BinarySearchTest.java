@@ -46,4 +46,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void findLastElement() {
+        int key =9;
+        int[] tab={4,2,5,8,9};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertEquals(searchResult.getPosition(),tab.length);
+
+    }
+
 }
