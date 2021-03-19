@@ -70,6 +70,31 @@ class BinarySearchTest {
     	assertThrows(IllegalArgumentException.class, ()-> BinarySearch.search(8, sequence));
     }
     
+    
+    @Test
+    void searchSequenceIsInIncorrectOrder() {
+    	int[] sequence = {7, 6, 5, 4, 3, 2, 1}; 
+        result = BinarySearch.search(5, sequence);
+        assertEquals(-1, result.getPosition());
+        assertFalse(result.isFound());
+    }
+
+    @Test
+    void searchSequenceIsInDescendingOrder() {
+    	int[] sequence = {7, 6, 5, 4, 3, 2, 1}; 
+        result = BinarySearch.search(5, sequence);
+        assertEquals(-1, result.getPosition());
+        assertFalse(result.isFound());
+    }
+    
+    @Test
+    void searchSequenceHaveEqualElements() {
+    	int[] sequence = {1, 2, 3, 3, 5, 6, 7};
+        result = BinarySearch.search(5, sequence);
+        assertEquals(4, result.getPosition());
+        assertTrue(result.isFound());
+    }
+    
     @Test
     void test() {
         fail("Not yet implemented");
