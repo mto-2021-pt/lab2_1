@@ -12,7 +12,7 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void test1() {
+    void searchForExistingElementInOneElementArray() {
         int[] seq=new int[]{1};
         SearchResult result = BinarySearch.search(1,seq );
         assertTrue(result.isFound());
@@ -21,7 +21,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test2()
+    void searchForNonexistingElementInOneElementArray()
     {
         int[] seq=new int[]{1};
         SearchResult result = BinarySearch.search(3, seq);
@@ -30,7 +30,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test3()
+    void searchForFirstExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
         SearchResult result = BinarySearch.search(1, seq);
@@ -40,7 +40,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test4()
+    void searchForLastExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
         SearchResult result = BinarySearch.search(5, seq);
@@ -50,7 +50,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test5()
+    void searchForMiddleExistingElementInArray()
     {
         int[] seq=new int[]{1,2,3,4,5};
         SearchResult result = BinarySearch.search(3, seq);
@@ -60,7 +60,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test6()
+    void searchForNonexistingElementInArray()
     {
         int[] seq=new int[]{1,2,4,5,6};
         SearchResult result = BinarySearch.search(3,seq);
