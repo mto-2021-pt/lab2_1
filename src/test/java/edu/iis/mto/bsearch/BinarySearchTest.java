@@ -65,4 +65,12 @@ class BinarySearchTest {
         assertEquals(2, searchResult.getPosition());
         assertEquals(seq[searchResult.getPosition()], key);
     }
+    @Test
+    public void shouldNotSearchElementInManyElementSequences() {
+        int key = 7;
+        int[] seq = {1, 2, 4, 8};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(false, searchResult.isFound());
+        assertEquals(-1, searchResult.getPosition());
+    }
 }
