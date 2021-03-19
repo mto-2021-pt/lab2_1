@@ -20,42 +20,42 @@ class BinarySearchTest {
     @Test
     void searchShouldReturnIndexOfFirstElementInSequenceWithOneElement() {
     	result = BinarySearch.search(2, oneElementSeq);
-    	assertEquals(result.getPosition(), 0);
+    	assertEquals(0, result.getPosition());
     	assertTrue(result.isFound());
     }
     
     @Test
     void searchShouldNotFindElementInSequenceWithOneElement() {
      	result = BinarySearch.search(1, oneElementSeq);
-    	assertEquals(result.getPosition(), -1);
+    	assertEquals(-1, result.getPosition());
     	assertFalse(result.isFound());
     }
     
     @Test
     void searchShouldReturnIndexOfFirstElementInSequenceWithMultipleElements() {
     	result = BinarySearch.search(1, seq);
-    	assertEquals(result.getPosition(), 0);
+    	assertEquals(0, result.getPosition());
     	assertTrue(result.isFound());
     }
     
     @Test
     void searchShouldReturnIndexOfLastElementInSequenceWithMultipleElements() {
     	result = BinarySearch.search(7, seq);
-    	assertEquals(result.getPosition(), seq.length - 1);
+    	assertEquals(seq.length - 1, result.getPosition());
     	assertTrue(result.isFound());
     }
     
     @Test
     void searchShouldReturnIndexOfMidleElementInSequenceWithMultipleElements() {
     	result = BinarySearch.search(4, seq);
-    	assertEquals(result.getPosition(), (seq.length - 1)/2);
+    	assertEquals((seq.length - 1)/2, result.getPosition());
     	assertTrue(result.isFound());
     }
     
     @Test
     void searchShouldNotFindElementInSequenceWithMultipleElements() {
     	result = BinarySearch.search(8, seq);
-    	assertEquals(result.getPosition(), -1);
+    	assertEquals(-1, result.getPosition());
     	assertFalse(result.isFound());
     }
     
