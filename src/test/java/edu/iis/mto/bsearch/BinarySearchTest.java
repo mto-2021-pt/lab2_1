@@ -16,6 +16,7 @@ class BinarySearchTest {
     int[] sequence = new int[]{12};
     int[] longSequence = new int[]{12,15,55,500};
     int[] emptySequence = new int[]{};
+    int[] sequenceOfTwelves = new int[]{12,12,12,12,12};
 
     @Test
     void sequenceOfLengthOneTest(){
@@ -63,7 +64,6 @@ class BinarySearchTest {
 
     @Test
     void emptySequenceTest(){
-        //SearchResult sr = BinarySearch.search(key,emptySequence);
         assertThrows(IllegalArgumentException.class,()->{
             BinarySearch.search(key,emptySequence);
         });
@@ -74,5 +74,12 @@ class BinarySearchTest {
         assertThrows(NullPointerException.class,()->{
             BinarySearch.search(key,null);
         });
+    }
+
+    @Test
+    void sequenceOfIdenticalNumbersTest(){
+        SearchResult sr = BinarySearch.search(key,sequenceOfTwelves);
+        assertTrue(sr.isFound());
+        assertEquals(key,sequenceOfTwelves[sr.getPosition()]);
     }
 }
