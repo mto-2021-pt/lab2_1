@@ -8,6 +8,7 @@ class BinarySearchTest {
     private BinarySearch binarySearch = BinarySearch.create();
     private static final int[] oneElemSeq = {1};
     private static final int[] multiElemSeq = {1, 2, 3, 4, 5};
+    private static final int[] duplicatedElemSeq = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
     private static final int[] emptySeq = {};
     private static final int firstPosition = 0;
     private static final int lastPosition = 4;
@@ -64,13 +65,21 @@ class BinarySearchTest {
 
     @Test
     public void searchForNonexistentElem_emptySeq_exceptionThrown(){
-        int searchingElem=1;
-        Assertions.assertThrows(IllegalArgumentException.class, () -> binarySearch.search(searchingElem,emptySeq));
+        int searchingElem = 1;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> binarySearch.search(searchingElem, emptySeq));
     }
 
     @Test
     public void searchForNonexistentElem_nullSeq_exceptionThrown(){
-        int searchingElem=1;
+        int searchingElem = 1;
         Assertions.assertThrows(NullPointerException.class, () -> binarySearch.search(searchingElem,null));
+    }
+
+    @Test
+    public void searchForExistingElem_multiElemSeqWithDuplicates_positionFound() {
+        int searchingElem = 1;
+        SearchResult searchResult = binarySearch.search(searchingElem, duplicatedElemSeq);
+        Assertions.assertTrue(searchResult.isFound());
+        Assertions.assertEquals(searchingElem, duplicatedElemSeq[searchResult.getPosition()]);
     }
 }
