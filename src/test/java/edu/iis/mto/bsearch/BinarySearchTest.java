@@ -76,4 +76,11 @@ class BinarySearchTest {
         int[]seq=new int[]{1234,1233,1232,1231,1230,1229};
         assertThrows(IllegalArgumentException.class,()-> BinarySearch.search(key,seq));
     }
+
+    @Test
+    void MultipleElementSequence_ElementsInIncorrectOrder(){
+        int key=1234;
+        int[]seq=new int[]{1234,1235,1236,1237,1238,-1};
+        assertThrows(IllegalArgumentException.class,()-> BinarySearch.search(key,seq));
+    }
 }
