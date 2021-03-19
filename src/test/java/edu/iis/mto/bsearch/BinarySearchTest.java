@@ -45,4 +45,12 @@ class BinarySearchTest {
         assertEquals(key,longSequence[sr.getPosition()]);
     }
 
+    @Test
+    void isElementOfSequenceFoundTest(){
+        key = 55;
+        SearchResult sr = BinarySearch.search(key,longSequence);
+        assertTrue(sr.isFound());
+        assertEquals(key,longSequence[sr.getPosition()]);
+    }
+
 }
