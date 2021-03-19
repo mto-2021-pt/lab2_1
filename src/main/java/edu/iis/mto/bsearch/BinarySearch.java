@@ -43,4 +43,7 @@ public class BinarySearch {
         return result;
     }
 
+    public static BinarySearch create() {
+        return new BinarySearch();
+    }
 }
