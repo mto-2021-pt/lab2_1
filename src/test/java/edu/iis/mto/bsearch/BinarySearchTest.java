@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class BinarySearchTest {
 
-    int[] sequence = new int[]{13, 17, 287, 21, 156, -3, 987, 22, 15};
+    int[] sequence = new int[]{13, 15, 17, 20, 22, 156, 333, 453, 896};
 
     @BeforeEach
     void setUp() throws Exception {}
@@ -33,10 +33,17 @@ class BinarySearchTest {
 
     @Test
     void keyIsFirstElementInSequence() {
-        int key=13;
+        int key = 13;
         SearchResult sr = BinarySearch.search(key, sequence);
         assertTrue(sr.isFound());
         assertEquals(key, sequence[0]);
     }
 
+    @Test
+    void keyIsLastElementInSequence() {
+        int key = 896;
+        SearchResult sr = BinarySearch.search(key, sequence);
+        assertTrue(sr.isFound());
+        assertEquals(key, sequence[sequence.length-1]);
+    }
 }
