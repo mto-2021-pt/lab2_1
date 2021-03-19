@@ -1,9 +1,9 @@
 package edu.iis.mto.bsearch;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class BinarySearchTest {
@@ -12,8 +12,14 @@ class BinarySearchTest {
     void setUp() throws Exception {}
 
     @Test
-    void test() {
-        fail("Not yet implemented");
+    void nazwaTestu(){
+        int key = 12;
+        int[] sequence = new int[]{12};
+        SearchResult sr = BinarySearch.search(key,sequence);
+        assertTrue(sr.isFound());
+        assertEquals(key,sequence[sr.getPosition()]);
+
+
     }
 
 }
