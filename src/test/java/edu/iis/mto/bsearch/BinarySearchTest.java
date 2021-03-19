@@ -16,7 +16,7 @@ class BinarySearchTest {
 
     //input length > 1
     final int[] firstElementSequence = new int[]{CORRECT_KEY, 3, 4, 5, 6};
-    final int[] lastElementSequence = new int[]{6, 5, 4, 3, CORRECT_KEY};
+    final int[] lastElementSequence = new int[]{-3, -2, -1, 0, CORRECT_KEY};
     final int[] middleElementSequence = new int[]{3, 4, CORRECT_KEY, 5, 6};
     final int[] noElementSequence = new int[]{3, 4, 5, 6};
 
