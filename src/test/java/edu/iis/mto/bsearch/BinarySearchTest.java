@@ -8,6 +8,7 @@ class BinarySearchTest {
     private BinarySearch binarySearch = BinarySearch.create();
     private static final int[] oneElemSeq = {1};
     private static final int[] multiElemSeq = {1, 2, 3, 4, 5};
+    private static final int[] emptySeq = {};
     private static final int firstPosition = 0;
     private static final int lastPosition = 4;
     private static final int middlePosition = 2;
@@ -59,5 +60,11 @@ class BinarySearchTest {
         SearchResult searchResult = binarySearch.search(searchingElem, multiElemSeq);
         Assertions.assertFalse(searchResult.isFound());
         Assertions.assertEquals(notFound, searchResult.getPosition());
+    }
+
+    @Test
+    public void searchForNonexistentElem_emptySeq_exceptionThrown(){
+        int searchingElem=1;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> binarySearch.search(searchingElem,emptySeq));
     }
 }
