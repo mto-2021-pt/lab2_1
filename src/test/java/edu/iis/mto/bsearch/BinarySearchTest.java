@@ -24,4 +24,15 @@ class BinarySearchTest {
 
     }
 
+    @Test
+    void findOneElementFalse() {
+        int key =5;
+        int[] tab={4};
+
+        SearchResult searchResult =BinarySearch.search(key,tab);
+
+        assertFalse(searchResult.isFound());
+
+    }
+
 }
