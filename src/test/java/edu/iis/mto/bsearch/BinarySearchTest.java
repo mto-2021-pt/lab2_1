@@ -12,6 +12,7 @@ class BinarySearchTest {
     int[] shortSequence = new int[]{13};
     int[] sequenceWithNegativeNumbers = new int[]{-20, -18, -10, -5, -2, -1};
     int[] emptySequence = new int[]{};
+    int[] sequenceWithOnlyThirteens = new  int[]{13, 13, 13, 13};
 
     @BeforeEach
     void setUp() throws Exception {}
@@ -77,5 +78,12 @@ class BinarySearchTest {
             int key = 13;
             SearchResult searchResult = BinarySearch.search(key, emptySequence);
             assertFalse(searchResult.isFound());
-        }
+    }
+
+    @Test
+    void keyIsInSequenceMultipleTimes() {
+        int key = 13;
+        SearchResult searchResult = BinarySearch.search(key, sequenceWithOnlyThirteens);
+        assertTrue(searchResult.isFound());
+    }
 }
