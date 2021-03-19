@@ -1,7 +1,10 @@
 package edu.iis.mto.bsearch;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
+
+import org.hamcrest.core.Is;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,8 +22,8 @@ class BinarySearchTest {
         SearchResult result = BinarySearch.search(key,seq );
         int actual=seq[result.getPosition()];
 
-        assertTrue(result.isFound());
-        assertEquals(key,actual);
+        assertThat(result.isFound(), Is.is(true));
+        assertThat(key,Is.is(actual));
     }
 
     @Test
@@ -31,8 +34,8 @@ class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key, seq);
 
-        assertFalse(result.isFound());
-        assertEquals( -1,result.getPosition());
+        assertThat(result.isFound(), Is.is(false));
+        assertThat( -1,Is.is(result.getPosition()));
     }
 
     @Test
@@ -44,8 +47,8 @@ class BinarySearchTest {
         SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
 
-        assertTrue(result.isFound());
-        assertEquals(key,actual);
+        assertThat(result.isFound(), Is.is(true));
+        assertThat(key,Is.is(actual));
     }
 
     @Test
@@ -57,8 +60,8 @@ class BinarySearchTest {
         SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
 
-        assertTrue(result.isFound());
-        assertEquals(key,actual);
+        assertThat(result.isFound(), Is.is(true));
+        assertThat(key,Is.is(actual));
     }
 
     @Test
@@ -70,8 +73,8 @@ class BinarySearchTest {
         SearchResult result = BinarySearch.search(key, seq);
         int actual=seq[result.getPosition()];
 
-        assertTrue(result.isFound());
-        assertEquals(key,actual);
+        assertThat(result.isFound(), Is.is(true));
+        assertThat(key,Is.is(actual));
     }
 
     @Test
@@ -82,8 +85,8 @@ class BinarySearchTest {
 
         SearchResult result = BinarySearch.search(key,seq);
 
-        assertFalse(result.isFound());
-        assertEquals( -1,result.getPosition());
+        assertThat(result.isFound(), Is.is(false));
+        assertThat( -1,Is.is(result.getPosition()));
     }
 
 
