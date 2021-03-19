@@ -17,7 +17,7 @@ class BinarySearchTest {
 
             fail("Expected to throw NullPointerException.");
         }catch(NullPointerException e){
-            // Ok.
+            // Ok. 
         }
     }
 
