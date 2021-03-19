@@ -36,4 +36,13 @@ class BinarySearchTest {
         assertEquals(-1, searchResult.getPosition());
     }
 
+    @Test
+    public void shouldSearchElementInManyElementsSequences() {
+        int key = 7;
+        int[] seq = {7, 9, 11, 15, 30, 40, 59};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(true, searchResult.isFound());
+        assertEquals(0, searchResult.getPosition());
+        assertEquals(seq[searchResult.getPosition()], key);
+    }
 }
