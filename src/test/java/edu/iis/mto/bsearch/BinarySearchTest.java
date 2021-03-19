@@ -27,4 +27,13 @@ class BinarySearchTest {
         assertEquals(seq[searchResult.getPosition()], key);
     }
 
+    @Test
+    public void shouldNotSearchElementInOneElementSequences() {
+        int key = 7;
+        int[] seq = {9};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(false, searchResult.isFound());
+        assertEquals(-1, searchResult.getPosition());
+    }
+
 }
