@@ -28,4 +28,14 @@ class BinarySearchTest {
         assertFalse(res.isFound());
     }
 
+    @Test
+    void MultipleElementSequence_ElementIsFirstInSequence(){
+        int key=1234;
+        int[]seq=new int[]{1234,1235,1588,1891,2032,4056};
+        SearchResult res=BinarySearch.search(key,seq);
+        assertTrue(res.isFound());
+        assertEquals(seq[0],key);
+    }
+
+
 }
