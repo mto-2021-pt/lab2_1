@@ -19,4 +19,13 @@ class BinarySearchTest {
         assertTrue(sr.isFound());
         assertEquals(key, sequence[sr.getPosition()]);
     }
+
+    @Test
+    void keyIsNotInSequence() {
+        int key = 87;
+        int[] sequence = new int[]{13};
+        SearchResult sr = BinarySearch.search(key, sequence);
+        assertFalse(sr.isFound());
+        assertEquals(-1, sr.getPosition());
+    }
 }
