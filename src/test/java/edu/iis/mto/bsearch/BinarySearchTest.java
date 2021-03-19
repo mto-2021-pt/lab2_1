@@ -105,4 +105,6 @@ class BinarySearchTest {
         SearchResult result = BinarySearch.search(CORRECT_KEY, onlyCorrectValuesSequence);
         assertTrue(result.isFound());
     }
+
+    //wiedza na temat implementacji pozwoli na znalezienie ograniczeń takich jak maksymalny rozmiar zmiennych czy np. rzucane wyjątki
 }
