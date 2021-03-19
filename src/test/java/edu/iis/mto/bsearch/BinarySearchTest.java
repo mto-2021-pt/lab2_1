@@ -67,4 +67,10 @@ class BinarySearchTest {
         int searchingElem=1;
         Assertions.assertThrows(IllegalArgumentException.class, () -> binarySearch.search(searchingElem,emptySeq));
     }
+
+    @Test
+    public void searchForNonexistentElem_nullSeq_exceptionThrown(){
+        int searchingElem=1;
+        Assertions.assertThrows(NullPointerException.class, () -> binarySearch.search(searchingElem,null));
+    }
 }
