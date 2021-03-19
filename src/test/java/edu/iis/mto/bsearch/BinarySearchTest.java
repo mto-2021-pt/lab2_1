@@ -10,6 +10,7 @@ class BinarySearchTest {
     private static final int[] multiElemSeq = {1, 2, 3, 4, 5};
     private static final int[] duplicatedElemSeq = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
     private static final int[] unorderedElemSeq = {5, 3, 2, 4, 7, 1, 6};
+    private static final int[] descElemSeq = {7, 6, 5, 4, 3, 2, 1};
     private static final int[] emptySeq = {};
     private static final int firstPosition = 0;
     private static final int lastPosition = 4;
@@ -88,6 +89,14 @@ class BinarySearchTest {
     public void searchForExistingElem_unorderedMultiElemSeq_positionNotFound() {
         int searchingElem = 1;
         SearchResult searchResult = binarySearch.search(searchingElem, unorderedElemSeq);
+        Assertions.assertFalse(searchResult.isFound());
+        Assertions.assertEquals(notFound, searchResult.getPosition());
+    }
+
+    @Test
+    public void searchForExistingElem_descMultiElemSeq_positionNotFound() {
+        int searchingElem = 1;
+        SearchResult searchResult = binarySearch.search(searchingElem, descElemSeq);
         Assertions.assertFalse(searchResult.isFound());
         Assertions.assertEquals(notFound, searchResult.getPosition());
     }
