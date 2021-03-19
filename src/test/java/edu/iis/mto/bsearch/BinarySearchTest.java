@@ -12,17 +12,13 @@ class BinarySearchTest {
 
     @Test
     void searching_in_empty_array() {
-        int key = -1;
-        boolean catched = false;
         try {
-            SearchResult res = BinarySearch.search(key, new int[]{});
-        }catch(IllegalArgumentException e){
-            catched = true;
-        }catch(Exception e){
-            fail("Binary search did not threw correct exception when passed empty array.");
-        }
+            SearchResult res = BinarySearch.search(-1, new int[]{});
 
-        assertTrue(catched);
+            fail("Expected to throw IllegalArgumentException.");
+        }catch(IllegalArgumentException e){
+            // Ok.
+        }
     }
 
     @Test
