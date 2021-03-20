@@ -17,7 +17,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test1() {
+    void searchShouldFindOneElementInSequence() {
         int key = 1;
         int[] seq = {1};
         SearchResult searchResult = BinarySearch.search(key, seq);
@@ -27,7 +27,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test2() {
+    void searchShouldNotFindOneElementInSequence() {
         int key = 1;
         int[] seq = {2};
         SearchResult searchResult = BinarySearch.search(key, seq);
@@ -36,7 +36,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test3() {
+    void keyShouldBeFirstElement() {
         int key = 2;
         int[] seq = {2, 4, 6, 8, 10};
         SearchResult searchResult = BinarySearch.search(key, seq);
@@ -45,7 +45,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test4() {
+    void keyShouldBeLastElement() {
         int key = 10;
         int[] seq = {2, 4, 6, 8, 10};
         SearchResult searchResult = BinarySearch.search(key, seq);
@@ -54,7 +54,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test5() {
+    void keyShouldBeMiddleElement() {
         int key = 6;
         int[] seq = {2, 4, 6, 8, 10};
         SearchResult searchResult = BinarySearch.search(key, seq);
@@ -64,7 +64,7 @@ class BinarySearchTest {
     }
 
     @Test
-    void test6() {
+    void keyShouldBeNotFound() {
         int key = 55;
         int[] seq = {2, 4, 6, 8, 10};
         SearchResult searchResult = BinarySearch.search(key, seq);
