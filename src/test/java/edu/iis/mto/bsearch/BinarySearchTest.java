@@ -1,19 +1,17 @@
 package edu.iis.mto.bsearch;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BinarySearchTest {
 
+    int[] emptySequence = {};
     int[] oneElementSequence = {1};
     int[] fiveElementSequence = {2, 4, 6, 8, 10};
     int[] sequenceOfAllFives = {5, 5, 5, 5, 5};
+    int[] threeSameNumbersInTheMiddle = {2, 4, 4, 4, 10};
     SearchResult searchResult;
 
     @BeforeEach
@@ -24,8 +22,7 @@ class BinarySearchTest {
     void searchShouldFindOneElementInSequence() {
         searchResult = BinarySearch.search(1, oneElementSequence);
         assertTrue(searchResult.isFound());
-        assertEquals(1, searchResult.getPosition());
-
+        assertEquals(0, searchResult.getPosition());
     }
 
     @Test
@@ -62,5 +59,31 @@ class BinarySearchTest {
         searchResult = BinarySearch.search(55, fiveElementSequence);
         assertEquals(searchResult.getPosition(), -1);
         assertFalse(searchResult.isFound());
+    }
+
+    @Test
+    void emptySequence() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            BinarySearch.search(5, emptySequence);
+        });
+    }
+
+    @Test
+    void nullSequence() {
+        assertThrows(NullPointerException.class, () -> {
+            BinarySearch.search(5, null);
+        });
+    }
+
+    @Test
+    void sequenceHaveAllNumbersTheSame() {
+        searchResult = BinarySearch.search(5, sequenceOfAllFives);
+        assertTrue(searchResult.isFound());
+    }
+
+    @Test
+    void sameNumbersInTheMiddle() {
+        searchResult = BinarySearch.search(4, threeSameNumbersInTheMiddle);
+        assertTrue(searchResult.isFound());
     }
 }
