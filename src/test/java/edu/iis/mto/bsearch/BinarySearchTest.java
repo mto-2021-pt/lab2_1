@@ -11,63 +11,55 @@ import static org.hamcrest.Matchers.hasSize;
 
 class BinarySearchTest {
 
+    int[] oneElementSequence = {1};
+    int[] fiveElementSequence = {2, 4, 6, 8, 10};
+    int[] sequenceOfAllFives = {5, 5, 5, 5, 5};
+    SearchResult searchResult;
+
     @BeforeEach
     void setUp() throws Exception {
-
     }
 
     @Test
     void searchShouldFindOneElementInSequence() {
-        int key = 1;
-        int[] seq = {1};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+        searchResult = BinarySearch.search(1, oneElementSequence);
         assertTrue(searchResult.isFound());
-        assertEquals(key, searchResult.getPosition());
+        assertEquals(1, searchResult.getPosition());
 
     }
 
     @Test
     void searchShouldNotFindOneElementInSequence() {
-        int key = 1;
-        int[] seq = {2};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+        searchResult = BinarySearch.search(2, oneElementSequence);
         assertFalse(searchResult.isFound());
         assertEquals(searchResult.getPosition(), -1);
     }
 
     @Test
     void keyShouldBeFirstElement() {
-        int key = 2;
-        int[] seq = {2, 4, 6, 8, 10};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+        searchResult = BinarySearch.search(2, fiveElementSequence);
         assertEquals(searchResult.getPosition(), 0);
         assertTrue(searchResult.isFound());
     }
 
     @Test
     void keyShouldBeLastElement() {
-        int key = 10;
-        int[] seq = {2, 4, 6, 8, 10};
-        SearchResult searchResult = BinarySearch.search(key, seq);
-        assertEquals(searchResult.getPosition() + 1, seq.length);
+        searchResult = BinarySearch.search(10, fiveElementSequence);
+        assertEquals(searchResult.getPosition() + 1, fiveElementSequence.length);
         assertTrue(searchResult.isFound());
     }
 
     @Test
     void keyShouldBeMiddleElement() {
-        int key = 6;
-        int[] seq = {2, 4, 6, 8, 10};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+        searchResult = BinarySearch.search(6, fiveElementSequence);
         assertTrue(searchResult.isFound());
-        assertEquals(seq[searchResult.getPosition()], key);
+        assertEquals(fiveElementSequence[searchResult.getPosition()], 6);
 
     }
 
     @Test
     void keyShouldBeNotFound() {
-        int key = 55;
-        int[] seq = {2, 4, 6, 8, 10};
-        SearchResult searchResult = BinarySearch.search(key, seq);
+        searchResult = BinarySearch.search(55, fiveElementSequence);
         assertEquals(searchResult.getPosition(), -1);
         assertFalse(searchResult.isFound());
     }
