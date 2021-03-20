@@ -12,6 +12,7 @@ class BinarySearchTest {
     int[] fiveElementSequence = {2, 4, 6, 8, 10};
     int[] sequenceOfAllFives = {5, 5, 5, 5, 5};
     int[] threeSameNumbersInTheMiddle = {2, 4, 4, 4, 10};
+    int[] sequenceWithDecreasingNumbers = {10, 8, 6, 4, 2};
     SearchResult searchResult;
 
     @BeforeEach
@@ -85,5 +86,10 @@ class BinarySearchTest {
     void sameNumbersInTheMiddle() {
         searchResult = BinarySearch.search(4, threeSameNumbersInTheMiddle);
         assertTrue(searchResult.isFound());
+    }
+    @Test
+    void decreasingSequence() {
+        searchResult = BinarySearch.search(8, sequenceWithDecreasingNumbers);
+        assertFalse(searchResult.isFound());
     }
 }
