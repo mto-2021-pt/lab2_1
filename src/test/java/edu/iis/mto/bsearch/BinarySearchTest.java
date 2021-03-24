@@ -52,4 +52,12 @@ class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertEquals(2, searchResult.getPosition());
     }
+
+    @Test
+    void isNotInSequenceWithManyElements() {
+        int key = 6;
+        int[] seq = new int[]{1,2,3,4,5};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(-1, searchResult.getPosition());
+    }
 }
