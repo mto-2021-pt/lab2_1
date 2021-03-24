@@ -29,4 +29,19 @@ class BinarySearchTest {
         assertEquals(-1, searchResult.getPosition());
     }
 
+    @Test
+    void isFirstElementOfSequence() {
+        int key = 1;
+        int[] seq = new int[]{1,2,3,4,5};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(0, searchResult.getPosition());
+    }
+
+    @Test
+    void isLastElementOfSequence() {
+        int key = 5;
+        int[] seq = new int[]{1,2,3,4,5};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(4, searchResult.getPosition());
+    }
 }
