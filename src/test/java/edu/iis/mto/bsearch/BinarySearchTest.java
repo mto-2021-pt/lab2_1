@@ -74,4 +74,19 @@ class BinarySearchTest {
         }
     }
 
+    @Test
+    void isSequenceNull() {
+        int key = 1;
+        try{
+            SearchResult searchResult = BinarySearch.search(key,null);
+            assertFalse(searchResult.isFound());
+            assertEquals(-1, searchResult.getPosition());
+        }
+        catch(NullPointerException e) {
+            assertEquals("This sequence is null", e.getMessage());
+        }
+    }
+
+
+
 }
