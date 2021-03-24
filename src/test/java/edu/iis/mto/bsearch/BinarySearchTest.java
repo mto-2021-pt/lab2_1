@@ -98,6 +98,16 @@ class BinarySearchTest {
         assertEquals(2, seq[searchResult.getPosition()]);
     }
 
+    @Test
+    void sameKeyForSameSequences() {
+        int key = 3;
+        int[] seq = {1,2,3,4,5};
+        int[] seq2 = {1,2,3,4,5};
 
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        SearchResult searchResult2 = BinarySearch.search(key, seq2);
+
+        assertEquals(searchResult, searchResult2);
+    }
 
 }
