@@ -60,4 +60,18 @@ class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertEquals(-1, searchResult.getPosition());
     }
+
+    @Test
+    void isEmptyArray() {
+        try{
+            int key = 1;
+            SearchResult result = BinarySearch.search(key,new int[]{});
+            assertFalse(result.isFound());
+            assertEquals(-1,result.getPosition());
+        }
+        catch(IllegalArgumentException e) {
+            assertEquals("Array is empty", e.getMessage());
+        }
+    }
+
 }
