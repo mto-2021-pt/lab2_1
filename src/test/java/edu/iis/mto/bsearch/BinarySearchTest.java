@@ -76,15 +76,26 @@ class BinarySearchTest {
 
     @Test
     void isSequenceNull() {
-        int key = 1;
+        int key = 9;
         try{
-            SearchResult searchResult = BinarySearch.search(key,null);
-            assertFalse(searchResult.isFound());
-            assertEquals(-1, searchResult.getPosition());
+            SearchResult result = BinarySearch.search(key,null);
+            assertFalse(result.isFound());
+            assertEquals(-1,result.getPosition());
         }
-        catch(NullPointerException e) {
-            assertEquals("This sequence is null", e.getMessage());
+        catch(NullPointerException e)
+        {
+            assertEquals("Cannot read the array length because \"seq\" is null", e.getMessage());
         }
+    }
+
+    @Test
+    void duplicateKey() {
+        int key=2;
+        int[] seq={2,2,2,2};
+
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertTrue(searchResult.isFound());
+        assertEquals(2, seq[searchResult.getPosition()]);
     }
 
 
