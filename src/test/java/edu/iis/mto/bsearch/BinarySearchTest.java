@@ -44,4 +44,12 @@ class BinarySearchTest {
         SearchResult searchResult = BinarySearch.search(key, seq);
         assertEquals(4, searchResult.getPosition());
     }
+
+    @Test
+    void isMiddleElementOfSequence() {
+        int key = 3;
+        int[] seq = new int[]{1,2,3,4,5};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertEquals(2, searchResult.getPosition());
+    }
 }
