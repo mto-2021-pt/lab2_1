@@ -20,4 +20,13 @@ class BinarySearchTest {
         assertEquals(key, seq[searchResult.getPosition()]);
     }
 
+    @Test
+    void isNotInSequence() {
+        int key = 5;
+        int[] seq = new int[]{10};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertFalse(searchResult.isFound());
+        assertEquals(-1, searchResult.getPosition());
+    }
+
 }
