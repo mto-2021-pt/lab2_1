@@ -92,4 +92,12 @@ class BinarySearchTest {
         }
     }
 
+    @Test
+    void decreasingSequence () {
+        int key = 4;
+        int[] seq = {5,4,3,2,1};
+        SearchResult searchResult = BinarySearch.search(key, seq);
+        assertFalse(searchResult.isFound());
+    }
+
 }
